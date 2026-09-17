@@ -19,7 +19,7 @@ En el juego del dinosaurio, esto falla por completo por dos razones simples:
 
 ## Perceptron Multicapa
 
-Un perceptrón multicapa tiene capas intermedias (capas ocultas) con funciones no lineales (como ReLU).
+Un perceptrón multicapa tiene capas intermedias (capas ocultas) con funciones no lineales
 
 1. **Aprende reglas combinadas y curvas:**
    - La primera capa aprende condiciones básicas: *"está cerca"*, *"viene pájaro"*, *"va muy rápido"*.
@@ -37,11 +37,11 @@ Un perceptrón multicapa tiene capas intermedias (capas ocultas) con funciones n
 - **Perceptrón multicapa:** Al tener capas ocultas, puede aprender reglas compuestas (*"depende de..."*) y combinaciones entre velocidad, distancia y tipo de obstáculo.
 
 
-## Arquitectura del Multicapa (MLP)
+## Arquitectura del Multicapa
 
 
 
-### 1. Capa de Entrada (8 datos del juego)
+### 1. Capa de Entrada 
 Recibe la "foto" del momento exacto (valores escalados entre 0 y 1):
 - `dist_obstacle`: qué tan lejos está el obstáculo.
 - `speed`: qué tan rápido avanza el juego.
@@ -54,14 +54,14 @@ Recibe la "foto" del momento exacto (valores escalados entre 0 y 1):
 
 
 
-### 2. Capas Ocultas (Donde se aprende la lógica)
+### 2. Capas Ocultas
 - **Capa Oculta 1**
   Detecta situaciones básicas por separado (ej. "obstáculo muy cercano", "velocidad peligrosa", "dino en el aire").
 - **Capa Oculta 2**
   Cruza esas señales para armar reglas compuestas (ej. "cactus cerca" + "dino en el piso" = alerta de choque).
 
 
-### 3. Capa de Salida (El veredicto)
+### 3. Capa de Salida
 - **1 sola neurona con activación Sigmoide:**
   Da una salida entre **0.0 y 1.0** que representa la probabilidad de morir en el siguiente frame.
   - Cercano a 0 = No hay peligro.
